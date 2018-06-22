@@ -17,6 +17,9 @@
 :page-permalink: /guides/{projectid}
 :repo-description: Visit the https://openliberty.io/guides/{projectid}.html[website] for the rendered version of the guide.
 :common-includes: https://raw.githubusercontent.com/OpenLiberty/guides-common/master
+:link-to-published-guide: This repository contains the guide documentation source. To view the guide in published form, view it on the https://openliberty.io/guides/{projectid}.html[Open Liberty website].
+[.hidden]
+NOTE: This repository contains the guide documentation source. To view the guide in published form, view it on the https://openliberty.io/guides/{projectid}.html[Open Liberty website].
 = Creating a RESTful web service
 
 Learn how to create a REST service with JAX-RS, JSON-P, and Open Liberty.
@@ -288,6 +291,8 @@ assertion to a constant value that doesn't match the `os.name` system property.
 == Great work! You're done!
 
 You developed a REST service by using JAX-RS, JSON-P, and Liberty.
+
+include::https://raw.githubusercontent.com/OpenLiberty/guides-common/multipane/attribution.adoc[]
 
 == Related Links
 
