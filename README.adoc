@@ -182,7 +182,7 @@ pom.xml
 include::finish/pom.xml[]
 ----
 
-The variables being used in the [hotspot file=0]`server.xml` file are provided by the [hotspot=148-152 file=1]`<bootstrapProperties/>` section
+The variables being used in the [hotspot file=0]`server.xml` file are provided by the [hotspot=bootstrap file=1]`<bootstrapProperties/>` section
 of the Maven [hotspot file=1]`pom.xml`.
 
 [role="command"]
@@ -251,7 +251,7 @@ on `WebTarget` and then the [hotspot=43 file=0]`get` method on the returned obje
 call is a synchronous call that blocks until a response is received. This call returns a [hotspot=43 file=0]`Response`
 object, which can be interrogated to determine whether the request was successful.
 
-The first thing to check is that a `200` response was received. The JUnit [hotspot=47-48 file=0]`assertEquals` method can
+The first thing to check is that a `200` response was received. The JUnit [hotspot=response file=0]`assertEquals` method can
 be used for this. The first parameter is the error message that indicates why the test failed. The
 second parameter is the expected response code, and the third is the actual response code. It is
 important to associate the expected response code with the second parameter and the actual response
@@ -261,7 +261,7 @@ is the expected one, which can cause confusion.
 Check the response body to ensure it returned the right information. Since the client and the server
 are running on the same machine, it is reasonable to expect that the system properties for the local
 and remote JVM would be the same. In this case, an assertion is made that the `os.name` system property
-for both JVMs is the same. You could write additional assertions [hotspot=47-48 file=0]`assertEquals` to check for more values.
+for both JVMs is the same. You could write additional assertions [hotspot=response file=0]`assertEquals` to check for more values.
 
 === Running the tests
 
