@@ -78,9 +78,9 @@ single JAX-RS application is common, although multiple are possible.
 `src/main/java/io/openliberty/guides/rest/SystemApplication.java`
 ----
 
-The [hotspot=7-9]`SystemApplication` class extends the `Application` class, which in turn associates all JAX-RS
+The [hotspot=19-21]`SystemApplication` class extends the `Application` class, which in turn associates all JAX-RS
 resource classes in the WAR file with this JAX-RS application, making them available under the common
-path specified in the [hotspot=7-9]`SystemApplication` class. The [hotspot=6]`@ApplicationPath` annotation has a
+path specified in the [hotspot=19-21]`SystemApplication` class. The [hotspot=18]`@ApplicationPath` annotation has a
 value that indicates the path within the WAR that the JAX-RS application accepts requests from.
 
 SystemApplication.java
@@ -104,18 +104,18 @@ of resources helps with maintainability in the long run.
 
 This resource class has quite a bit of code in it, so let's break it down into manageable chunks.
 
-The [hotspot=11 file=0]`@Path` annotation on the class indicates that this resource responds to the `properties` path
-in the JAX-RS application. The [hotspot=6 file=1]`@ApplicationPath` annotation in the [hotspot=7-9 file=1]`SystemApplication` class together with
-the [hotspot=11 file=0]`@Path` annotation in this class indicates that the resource is available at the `System/properties`
+The [hotspot=24 file=0]`@Path` annotation on the class indicates that this resource responds to the `properties` path
+in the JAX-RS application. The [hotspot=18 file=1]`@ApplicationPath` annotation in the [hotspot=19-21 file=1]`SystemApplication` class together with
+the [hotspot=24 file=0]`@Path` annotation in this class indicates that the resource is available at the `System/properties`
 path.
 
 JAX-RS maps the HTTP methods on the URL to the methods on the class. The method to call is determined
 by the annotations specified on the methods. In the application you are building, an HTTP `GET` request
 to the `System/properties` path results in the system properties being returned.
 
-The [hotspot=14 file=0]`@GET` annotation on the method indicates that this method is to be called for the HTTP `GET`
-method. The [hotspot=15 file=0]`@Produces` annotation indicates the format of the content that will be returned, the
-value of the [hotspot=15 file=0]`@Produces` annotation will be specified in the HTTP `Content-Type` response header.
+The [hotspot=29 file=0]`@GET` annotation on the method indicates that this method is to be called for the HTTP `GET`
+method. The [hotspot=30 file=0]`@Produces` annotation indicates the format of the content that will be returned, the
+value of the [hotspot=30 file=0]`@Produces` annotation will be specified in the HTTP `Content-Type` response header.
 For this application, a JSON structure is to be returned. The desired `Content-Type` for a JSON
 response is `application/json` with `MediaType.APPLICATION_JSON` instead of the `String` content type. Using literal code such as `MediaType.APPLICATION_JSON` is better because in the event of a spelling error, a compile failure occurs.
 
@@ -127,18 +127,18 @@ gap in the specification is fixed in Java EE 8 with the inclusion of JSON-B.
 
 The method body does the following actions:
 
-. Creates a [hotspot=18 file=0]`JsonObjectBuilder` object using the `Json` class. The [hotspot=18 file=0]`JsonObjectBuilder` is then used
+. Creates a [hotspot=33 file=0]`JsonObjectBuilder` object using the `Json` class. The [hotspot=33 file=0]`JsonObjectBuilder` is then used
 to populate a `JsonObject` with values.
-. Calls the [hotspot=20 file=0]`getProperties` method on the `System` class to get a `Properties` object that contains
+. Calls the [hotspot=35 file=0]`getProperties` method on the `System` class to get a `Properties` object that contains
 all the system properties.
-. Calls the [hotspot=21 file=0]`entrySet` method on the `Properties` object to get a `Set` of all the entries.
-. Convert the `Set` to a `Stream` (new in Java SE 8) by calling the [hotspot=22 file=0]`stream` method. Streams make
+. Calls the [hotspot=36 file=0]`entrySet` method on the `Properties` object to get a `Set` of all the entries.
+. Convert the `Set` to a `Stream` (new in Java SE 8) by calling the [hotspot=37 file=0]`stream` method. Streams make
 working through all the entries in a list very simple.
-. Calls the [hotspot=23-24 file=0]`forEach` method on the `Stream` passing in a function that will be invoked for each
-entry in the `Stream`. The function passed in will call the [hotspot=23-24 file=0]`add` method on the [hotspot=18 file=0]`JsonObjectBuilder`
+. Calls the [hotspot=38-39 file=0]`forEach` method on the `Stream` passing in a function that will be invoked for each
+entry in the `Stream`. The function passed in will call the [hotspot=38-39 file=0]`add` method on the [hotspot=33 file=0]`JsonObjectBuilder`
 for every entry in the stream. The key and value for the `JsonObject` will be obtained by calling
-the [hotspot=23 file=0]`getKey` and [hotspot=24 file=0]`getValue` methods on the `Map.Entry` objects in the stream.
-. Returns the `JsonObject` by calling the [hotspot=26 file=0]`build` method on the [hotspot=18 file=0]`JsonObjectBuilder`.
+the [hotspot=38 file=0]`getKey` and [hotspot=39 file=0]`getValue` methods on the `Map.Entry` objects in the stream.
+. Returns the `JsonObject` by calling the [hotspot=41 file=0]`build` method on the [hotspot=33 file=0]`JsonObjectBuilder`.
 
 PropertiesResource.java
 [source,java,linenums,role='code_column']
