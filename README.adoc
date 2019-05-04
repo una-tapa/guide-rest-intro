@@ -45,7 +45,7 @@ OpenLibertyでRESTサービスを作る方法について学びます。
 
 新しいRESTアプリケーションを作成するときには、きちんとAPIの設計をすることが重要です。 JAX-RS APIは、JSON-RPC、またはXML-RPC APIを作成するためにも使用できますが、それはRESTfulなサービスではありません。良いRESTfulサービスは、サービスによって公開されているリソースを、作成、読み取り、更新、削除できるように設計します。このガイドの例では、システムプロパティが、公開されているリソースとなります。
 
-サービスは `/System/properties` というパスへ `GET`リクエストが送られると、 `200 OK` と共に、JVMのすべてのシステムプロパティを返します。
+サービスは `/System/properties` というパスへ`GET`リクエストが送られると、 `200 OK` と共に、JVMのすべてのシステムプロパティを返します。
 
 [role="command"]
 include::{common-includes}/gitclone.adoc[]
@@ -58,15 +58,11 @@ http://localhost:9080/LibertyProject/System/properties[^] URL.
 [role=command]
 include::{common-includes}/trywhatyoubuild-end.adoc[]
 
-== JAX-RSアプリケーションの作成
+== JAX-RSアプリケーションを作成してみましょう
 
 まず　`start` ディレクトリに移動します。
 
-JAX-RS has two key concepts for creating REST APIs. The most obvious one is the resource itself, which is
-modelled as a class. The second is a JAX-RS application, which groups all exposed resources under a
-common path. You can think of the JAX-RS application as a wrapper for all of your resources. Having a
-single JAX-RS application is common, although multiple are possible.
-
+JAX-RSには、REST APIを作成するための2つの重要な概念があります。１つめの概念は、リソース自体で、クラスとしてモデル化されています。２つ目の概念はJAX-RSアプリケーションです。JAX-RSアプリケーションが、公開されたすべてのリソースを共通のパスの下にグループ化します。 JAX-RSアプリケーションは、すべてのリソースのラッパー（操作を扱いやすくする仕組み）として考えることができます。普通は、複数のリソースに対して、１つのJAX-RSアプリケーションを作るのが一般的ですが、複数のJAX-RSアプリケーションを作成することも可能です。
 
 [role="code_command hotspot",subs="quotes"]
 ----
@@ -79,13 +75,15 @@ resource classes in the WAR file with this JAX-RS application, making them avail
 path specified in the [hotspot=7-9]`SystemApplication` class. The [hotspot=6]`@ApplicationPath` annotation has a
 value that indicates the path within the WAR that the JAX-RS application accepts requests from.
 
+ [hotspot=7-9]`SystemApplication` クラスは、 `Application` クラスを拡張しています。この`Application` クラスは、すWARファイルの中のすべてのJAX-RSのリソースクラスを、このJAX-RSのアプリケーションと関連付けます。この関連付けにより、リソースが [hotspot=7-9]`SystemApplication` 内の共通のパスの元で利用できるようになります。 [hotspot=6]`@ApplicationPath` アノテーションに指定された値が、JAX-RSアプリケーションがリクエストを受け付けるパスとなります。
+ 
 SystemApplication.java
 [source,java,linenums,role='code_column']
 ----
 include::finish/src/main/java/io/openliberty/guides/rest/SystemApplication.java[tags=**;!comment]
 ----
 
-== Creating the JAX-RS resource
+== JAX-RSのリソースを作成してみましょう
 
 In JAX-RS, a single class should represent a single resource, or a group of resources of the same type.
 In this application, a resource might be a system property, or a set of system properties. It is easy
