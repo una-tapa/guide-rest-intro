@@ -70,11 +70,6 @@ JAX-RSには、REST APIを作成するための2つの重要な概念があり�
 `src/main/java/io/openliberty/guides/rest/SystemApplication.java`
 ----
 
-The [hotspot=7-9]`SystemApplication` class extends the `Application` class, which in turn associates all JAX-RS
-resource classes in the WAR file with this JAX-RS application, making them available under the common
-path specified in the [hotspot=7-9]`SystemApplication` class. The [hotspot=6]`@ApplicationPath` annotation has a
-value that indicates the path within the WAR that the JAX-RS application accepts requests from.
-
  [hotspot=7-9]`SystemApplication` クラスは、 `Application` クラスを拡張しています。この`Application` クラスは、すWARファイルの中のすべてのJAX-RSのリソースクラスを、このJAX-RSのアプリケーションと関連付けます。この関連付けにより、リソースが [hotspot=7-9]`SystemApplication` 内の共通のパスの元で利用できるようになります。 [hotspot=6]`@ApplicationPath` アノテーションに指定された値が、JAX-RSアプリケーションがリクエストを受け付けるパスとなります。
  
 SystemApplication.java
