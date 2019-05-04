@@ -44,7 +44,7 @@ OpenLibertyでRESTサービスを作る方法について学びます。
 
 新しいRESTアプリケーションを作成するときには、きちんとAPIの設計をすることが重要です。 JAX-RS APIは、JSON-RPC、またはXML-RPC APIを作成するためにも使用できますが、それはRESTfulなサービスではありません。良いRESTfulサービスは、サービスによって公開されているリソース（このガイドの例では、システムプロパティがリソースとなります。）を、作成、読み取り、更新、削除できるように設計されています。
 
-サービスは `/System/properties`というパスへの`GET`リクエストに対して、`200 OK`と共に、JVMのすべてのシステムプロパティを返します。
+サービスは `/System/properties` というパスへの`GET`リクエストに対して `200 OK` と共に、JVMのすべてのシステムプロパティを返します。
 
 [role="command"]
 include::{common-includes}/gitclone.adoc[]
@@ -57,9 +57,9 @@ http://localhost:9080/LibertyProject/System/properties[^] URL.
 [role=command]
 include::{common-includes}/trywhatyoubuild-end.adoc[]
 
-== Creating a JAX-RS application
+== JAX-RSアプリケーションの作成
 
-Navigate to the `start` directory to begin.
+まず　`start` ディレクトリに移動します。
 
 JAX-RS has two key concepts for creating REST APIs. The most obvious one is the resource itself, which is
 modelled as a class. The second is a JAX-RS application, which groups all exposed resources under a
