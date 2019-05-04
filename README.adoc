@@ -51,7 +51,7 @@ include::{common-includes}/gitclone.adoc[]
 
 include::{common-includes}/trywhatyoubuild-beg.adoc[]
 
-Check out the service at the
+下記のURLにアクセスしてサービスを見てみましょう。
 http://localhost:9080/LibertyProject/System/properties[^] URL. 
 
 [role=command]
