@@ -88,14 +88,15 @@ JAX-RSでは、１つのクラスは、１つのリソースか、または同�
 `src/main/java/io/openliberty/guides/rest/PropertiesResource.java`
 ----
 
-このリソースクラスにはかなりのコードが含まれているので、少しずつ見ていきましょう。
+このリソースクラスにはかなりの量のコードが含まれているので、少しずつ見ていきます。
 
-このクラスの中の [hotspot=11 file=0]`@ Path`　アノテーションは、このリソースがJAX-RSアプリケーションで　`properties`　パスに応答することを示しています。 [hotspot = 7-9 file = 1]`SystemApplication` クラスの [hotspot = 6 file = 1]`@ApplicationPath` アノテーションと一緒に
-このクラスの [hotspot = 11 file = 0] `@Path`アノテーションはリソースが`System/properties` のパスで利用可能にします。
+The @Path annotation on the class indicates that this resource responds to the properties path in the JAX-RS application. The @ApplicationPath annotation in the SystemApplication class together with the @Path annotation in this class indicates that the resource is available at the System/properties path.
 
-JAX-RS maps the HTTP methods on the URL to the methods on the class. The method to call is determined
-by the annotations specified on the methods. In the application you are building, an HTTP `GET` request
-to the `System/properties` path results in the system properties being returned.
+[hotspot=11 file=0]`@ Path`　アノテーションは、このリソースが `properties` パスに応答することを示しています。
+[hotspot=7-9 file=1]`SystemApplication` クラスの [hotspot=6 file=1]`@ApplicationPath` アノテーションと一緒に合わせると、
+このクラスの[hotspot = 11 file = 0] `@Path`アノテーションは、リソースを`System/properties` のパスで利用できるようにします。
+
+JAX-RSは、URLのHTTPメソッドを、クラスのメソッドにマッピングします。呼び出すメソッドは、メソッドに指定されているアノテーションによって決まります。このアプリケーションでは `System/properties` パスへのHTTP GETリクエストはシステムプロパティを返します。
 
 The [hotspot=14 file=0]`@GET` annotation on the method indicates that this method is to be called for the HTTP `GET`
 method. The [hotspot=15 file=0]`@Produces` annotation indicates the format of the content that will be returned, the
