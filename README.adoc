@@ -58,7 +58,7 @@ http://localhost:9080/LibertyProject/System/properties[^] URL.
 [role=command]
 include::{common-includes}/trywhatyoubuild-end.adoc[]
 
-== JAX-RSアプリケーションを作成してみましょう
+== JAX-RSアプリケーションを作成してみよう
 
 まず　`start` ディレクトリに移動します。
 
@@ -78,12 +78,9 @@ SystemApplication.java
 include::finish/src/main/java/io/openliberty/guides/rest/SystemApplication.java[tags=**;!comment]
 ----
 
-== JAX-RSのリソースを作成してみましょう
+== JAX-RSのリソースを作成してみよう
 
-In JAX-RS, a single class should represent a single resource, or a group of resources of the same type.
-In this application, a resource might be a system property, or a set of system properties. It is easy
-to have a single class handle multiple different resources, but keeping a clean separation between types
-of resources helps with maintainability in the long run.
+JAX-RSでは、１つのクラスは、１つのリソースか、または同じタイプのリソースのグループでなければなりません。このアプリケーションでは、リソースはシステムプロパティ、またはシステムプロパティのセットです。 1つのクラスで複数の異なるリソースを処理することも出来ますが、リソースの種類を明確に区別することで長期的な保守性が向上します。
 
 [role="code_command hotspot", subs="quotes"]
 ----
@@ -91,12 +88,10 @@ of resources helps with maintainability in the long run.
 `src/main/java/io/openliberty/guides/rest/PropertiesResource.java`
 ----
 
-This resource class has quite a bit of code in it, so let's break it down into manageable chunks.
+このリソースクラスにはかなりのコードが含まれているので、少しずつ見ていきましょう。
 
-The [hotspot=11 file=0]`@Path` annotation on the class indicates that this resource responds to the `properties` path
-in the JAX-RS application. The [hotspot=6 file=1]`@ApplicationPath` annotation in the [hotspot=7-9 file=1]`SystemApplication` class together with
-the [hotspot=11 file=0]`@Path` annotation in this class indicates that the resource is available at the `System/properties`
-path.
+このクラスの中の [hotspot=11 file=0]`@ Path`　アノテーションは、このリソースがJAX-RSアプリケーションで　`properties`　パスに応答することを示しています。 [hotspot = 7-9 file = 1]`SystemApplication` クラスの [hotspot = 6 file = 1]`@ApplicationPath` アノテーションと一緒に
+このクラスの [hotspot = 11 file = 0] `@Path`アノテーションはリソースが`System/properties` のパスで利用可能にします。
 
 JAX-RS maps the HTTP methods on the URL to the methods on the class. The method to call is determined
 by the annotations specified on the methods. In the application you are building, an HTTP `GET` request
