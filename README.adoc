@@ -62,7 +62,7 @@ include::{common-includes}/trywhatyoubuild-end.adoc[]
 
 まず　`start` ディレクトリに移動します。
 
-JAX-RSには、REST APIを作成するための2つの重要な概念があります。１つめの概念は、リソース自体で、クラスとしてモデル化されています。２つ目の概念はJAX-RSアプリケーションです。JAX-RSアプリケーションが、公開されたすべてのリソースを共通のパスの下にグループ化します。 JAX-RSアプリケーションは、すべてのリソースのラッパー（操作を扱いやすくする仕組み）として考えることができます。普通は、複数のリソースに対して、１つのJAX-RSアプリケーションを作るのが一般的ですが、複数のJAX-RSアプリケーションを作成することも可能です。
+JAX-RSには、REST APIを作成するための2つの重要な概念があります。１つめの概念は、リソース自体で、クラスとしてモデル化されています。２つ目の概念はJAX-RSアプリケーションです。JAX-RSアプリケーションが、公開されたすべてのリソースを共通のパスの下にグループ化します。 JAX-RSアプリケーションは、すべてのリソースのラッパー（操作を扱いやすくする仕組み）として考えることができます。普通は、１つのJAX-RSアプリケーションを作るのが一般的ですが、複数のJAX-RSアプリケーションを作成することも可能です。
 
 [role="code_command hotspot",subs="quotes"]
 ----
@@ -90,13 +90,16 @@ JAX-RSでは、１つのクラスは、１つのリソースか、または同�
 
 このリソースクラスにはかなりの量のコードが含まれているので、少しずつ見ていきます。
 
-The @Path annotation on the class indicates that this resource responds to the properties path in the JAX-RS application. The @ApplicationPath annotation in the SystemApplication class together with the @Path annotation in this class indicates that the resource is available at the System/properties path.
-
 [hotspot=11 file=0]`@ Path`　アノテーションは、このリソースが `properties` パスに応答することを示しています。
 [hotspot=7-9 file=1]`SystemApplication` クラスの [hotspot=6 file=1]`@ApplicationPath` アノテーションと一緒に合わせると、
 このクラスの[hotspot = 11 file = 0] `@Path`アノテーションは、リソースを`System/properties` のパスで利用できるようにします。
 
 JAX-RSは、URLのHTTPメソッドを、クラスのメソッドにマッピングします。呼び出すメソッドは、メソッドに指定されているアノテーションによって決まります。このアプリケーションでは `System/properties` パスへのHTTP GETリクエストはシステムプロパティを返します。
+
+メソッドの上の[hotspot=14 file=0] `@ GET` アノテーションは、このメソッドがHTTPの `GET` に対して呼び出されることを示しています
+[hotspot=15 file=0] `@Produces` アノテーションは返されるコンテンツのフォーマットを示します。
+[hotspot=15 file=0] `@Produces` アノテーションの値はHTTPの `Content-Type` レスポンスヘッダで指定されます。
+このアプリケーションでは、JSON構造体が返されます。 JSONに望ましい `Content-Type` レスポンスは `String` ではなく `application/json` です。リテラルコードで表すと `application/json`は、`MediaType.APPLICATION_JSON`　となります。MediaType.APPLICATION_JSONなどのリテラルコードを使用するのは、スペルミスの場合にコンパイルエラーが発生するので、それを防ぐためです。
 
 The [hotspot=14 file=0]`@GET` annotation on the method indicates that this method is to be called for the HTTP `GET`
 method. The [hotspot=15 file=0]`@Produces` annotation indicates the format of the content that will be returned, the
