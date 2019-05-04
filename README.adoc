@@ -29,7 +29,8 @@ OpenLibertyでRESTサービスを作る方法について学びます。
 
 == このガイドで学ぶこと
 
-このガイドでは、JAX-RSとJSON-Pを使って簡単なRESTサービスを構築し、テストする方法を学びます。このサービスは `\http://localhost:9080/LibertyProject/System/properties`への `GET`リクエストに応答して、JVMのシステムプロパティを表示するものです。
+このガイドでは、JAX-RSとJSON-Pを使って簡単なRESTサービスを構築し、テストする方法を学びます。
+このサービスは `\http://localhost:9080/LibertyProject/System/properties`への `GET`リクエストに応答して、JVMのシステムプロパティを表示するものです。
 
 このサービスは、`GET`リクエストに対して、システムプロパティの内容をJSON形式で 応答します。
 各プロパティは、次のように、JSONオブジェクトのフィールドで表示されます。
