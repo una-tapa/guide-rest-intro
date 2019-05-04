@@ -20,21 +20,19 @@
 :page-permalink: /guides/{projectid}
 :repo-description: Visit the https://openliberty.io/guides/{projectid}.html[website] for the rendered version of the guide.
 :common-includes: https://raw.githubusercontent.com/OpenLiberty/guides-common/master
-= Creating a RESTful web service
+= RESTfulなwebサービスの作成
 
 [.hidden]
 NOTE: This repository contains the guide documentation source. To view the guide in published form, view it on the https://openliberty.io/guides/{projectid}.html[Open Liberty website].
 
-Learn how to create a REST service with JAX-RS, JSON-P, and Open Liberty
 OpenLibertyでRESTサービスを作る方法について学びます。
 
-== What you'll learn
+== このガイドで学ぶこと
 
-You will learn how to build and test a simple REST service with JAX-RS and JSON-P, which will expose
-the JVM's system properties. The REST service will respond to `GET` requests made to the `\http://localhost:9080/LibertyProject/System/properties` URL.
+このガイドでは、JAX-RSとJSON-Pを使って簡単なRESTサービスを構築し、テストする方法を学びます。このサービスは、`\http://localhost:9080/LibertyProject/System/properties`への`GET`リクエストに応答して、JVMのシステムプロパティを表示するものです。
 
-The service responds to a `GET` request with a JSON representation of the system properties, where
-each property is a field in a JSON object like this:
+このサービスは、`GET`リクエストに対して、システムプロパティの内容をJSON形式で 応答します。
+各プロパティは、次のように、JSONオブジェクトのフィールドで表示されます。
 
 [source,json,role="no_copy"]
 ----
@@ -44,13 +42,9 @@ each property is a field in a JSON object like this:
 }
 ----
 
-When you create a new REST application, the design of the API is important. The JAX-RS APIs could be
-used to create JSON-RPC, or XML-RPC APIs, but it wouldn't be a RESTful service. A good RESTful service
-is designed around the resources that are exposed, and on how to create, read, update, and delete the
-resources.
+新しいRESTアプリケーションを作成するときには、きちんとAPIの設計をすることが重要です。 JAX-RS APIは、JSON-RPC、またはXML-RPC APIを作成するためにも使用できますが、それはRESTfulなサービスではありません。良いRESTfulサービスは、サービスによって公開されているリソース（このガイドの例では、システムプロパティがリソースとなります。）を、作成、読み取り、更新、削除できるように設計されています。
 
-The service responds to `GET` requests to the `/System/properties` path. The `GET` request should
-return a `200 OK` response that contains all of the JVM's system properties.
+サービスは `/System/properties`というパスへの`GET`リクエストに対して、`200 OK`と共に、JVMのすべてのシステムプロパティを返します。
 
 [role="command"]
 include::{common-includes}/gitclone.adoc[]
