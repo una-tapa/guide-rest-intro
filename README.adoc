@@ -70,7 +70,7 @@ JAX-RSには、REST APIを作成するための2つの重要な概念があり�
 `src/main/java/io/openliberty/guides/rest/SystemApplication.java`
 ----
 
-[hotspot=7-9]`SystemApplication` クラスは、 `Application` クラスを拡張しています。この`Application` クラスは、すWARファイルの中のすべてのJAX-RSのリソースクラスを、このJAX-RSのアプリケーションと関連付けます。この関連付けにより、リソースが [hotspot=7-9]`SystemApplication` 内の共通のパスの元で利用できるようになります。 [hotspot=6]`@ApplicationPath` アノテーションに指定された値が、JAX-RSアプリケーションがリクエストを受け付けるパスとなります。
+[hotspot=7-9]　`SystemApplication` クラスは、 `Application` クラスを拡張しています。この`Application` クラスは、すWARファイルの中のすべてのJAX-RSのリソースクラスを、このJAX-RSのアプリケーションと関連付けます。この関連付けにより、リソースが [hotspot=7-9]　`SystemApplication` 内の共通のパスの元で利用できるようになります。 [hotspot=6]　`@ApplicationPath` アノテーションに指定された値が、JAX-RSアプリケーションがリクエストを受け付けるパスとなります。
  
 SystemApplication.java
 [source,java,linenums,role='code_column']
@@ -90,7 +90,7 @@ JAX-RSでは、１つのクラスは、１つのリソースか、または同�
 
 このリソースクラスにはかなりの量のコードが含まれているので、少しずつ見ていきます。
 
-[hotspot=11 file=0]`@ Path`　アノテーションは、このリソースが `properties` パスに応答することを示しています。
+[hotspot=11 file=0] `@ Path`　アノテーションは、このリソースが `properties` パスに応答することを示しています。
 [hotspot=7-9 file=1]`SystemApplication` クラスの [hotspot=6 file=1]`@ApplicationPath` アノテーションと一緒に合わせると、
 このクラスの[hotspot = 11 file = 0] `@Path`アノテーションは、リソースを`System/properties` のパスで利用できるようにします。
 
