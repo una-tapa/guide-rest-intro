@@ -107,11 +107,8 @@ The method body does the following actions:
 
 . まず  `Json` クラスを使用して、 [hotspot=18 file=0]`JsonObjectBuilder` オブジェクトを作ります。次に [hotspot=18 file=0]`JsonObjectBuilder` を使って、`JsonObject` とその値を入力していきます。
 .  `System` クラスの [hotspot=20 file=0]`getProperties` メソッドを呼び出して、すべてのシステムプロパティを含む `Properties` オブジェクトを取得します。
-. Calls the [hotspot=20 file=0]`getProperties` method on the `System` class to get a `Properties` object that contains
-all the system properties.
-. Calls the [hotspot=21 file=0]`entrySet` method on the `Properties` object to get a `Set` of all the entries.
-. Convert the `Set` to a `Stream` (new in Java SE 8) by calling the [hotspot=22 file=0]`stream` method. Streams make
-working through all the entries in a list very simple.
+.  `Properties` オブジェクトの [hotspot=21 file=0]`entrySet` メソッドを呼び出して、すべてのプロパティーの `Set` を取得します。
+. 　[hotspot=22 file=0]`stream` メソッドを呼んで `Set` を `Stream` (Java SE 8で新規追加された機能)に変換します。 Stream　はリストの中のエントリーを一つずつ見ていく作業を簡単にしてくれます。
 . Calls the [hotspot=23-24 file=0]`forEach` method on the `Stream` passing in a function that will be invoked for each
 entry in the `Stream`. The function passed in will call the [hotspot=23-24 file=0]`add` method on the [hotspot=18 file=0]`JsonObjectBuilder`
 for every entry in the stream. The key and value for the `JsonObject` will be obtained by calling
