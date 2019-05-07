@@ -105,7 +105,7 @@ JAX-RSはJSON構造体を作るため、いくつかの方法をサポートし�
 
 The method body does the following actions:
 
-.まず  `Json` クラスを使用して、 [hotspot=18 file=0]`JsonObjectBuilder` オブジェクトを作ります。次に [hotspot=18 file=0]`JsonObjectBuilder` を使って、`JsonObject` とその値を入力していきます。
+. まず  `Json` クラスを使用して、 [hotspot=18 file=0]`JsonObjectBuilder` オブジェクトを作ります。次に [hotspot=18 file=0]`JsonObjectBuilder` を使って、`JsonObject` とその値を入力していきます。
 . Creates a [hotspot=18 file=0]`JsonObjectBuilder` object using the `Json` class. The [hotspot=18 file=0]`JsonObjectBuilder` is then used
 to populate a `JsonObject` with values.
 . Calls the [hotspot=20 file=0]`getProperties` method on the `System` class to get a `Properties` object that contains
