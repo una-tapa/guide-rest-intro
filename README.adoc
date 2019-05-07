@@ -101,17 +101,7 @@ JAX-RSは、URLのHTTPメソッドを、クラスのメソッドにマッピン�
 [hotspot=15 file=0] `@Produces` アノテーションの値はHTTPの `Content-Type` レスポンスヘッダで指定されます。
 このアプリケーションでは、JSON構造体が返されます。 JSONに望ましい `Content-Type` レスポンスは `String` ではなく `application/json` です。リテラルコードで表すと `application/json`は、`MediaType.APPLICATION_JSON`　となります。MediaType.APPLICATION_JSONなどのリテラルコードを使用するのは、スペルミスの場合にコンパイルエラーが発生するので、それを防ぐためです。
 
-The [hotspot=14 file=0]`@GET` annotation on the method indicates that this method is to be called for the HTTP `GET`
-method. The [hotspot=15 file=0]`@Produces` annotation indicates the format of the content that will be returned, the
-value of the [hotspot=15 file=0]`@Produces` annotation will be specified in the HTTP `Content-Type` response header.
-For this application, a JSON structure is to be returned. The desired `Content-Type` for a JSON
-response is `application/json` with `MediaType.APPLICATION_JSON` instead of the `String` content type. Using literal code such as `MediaType.APPLICATION_JSON` is better because in the event of a spelling error, a compile failure occurs.
-
-JAX-RS supports a number of ways to marshal JSON. The JAX-RS specification mandates JSON-Processing
-(JSON-P) and JAX-B. Most JAX-RS implementations also support a Java POJO-to-JSON conversion, which
-allows the `Properties` object to be returned instead. Although this conversion would allow for a
-simpler implementation, it limits code portability as POJO-to-JSON conversion is non-standard. This
-gap in the specification is fixed in Java EE 8 with the inclusion of JSON-B.
+JAX-RSはJSON構造体を作るため、いくつかの方法をサポートしています。 JAX-RS仕様は、JSON-Processing（JSON-P）とJAX-Bを義務付けています。ほとんどのJAX-RS実装は、Java POJO（Plain Old Java Object=昔からある普通のJavaオブジェクト）からJSONへの変換もサポートしています。これを使ってJSONオブジェクトを返すかわりに、Propertiesオブジェクトを返すことができます。この変換はより単純な実装を可能にしますが、POJOからJSONへの変換は標準的ではないため、コードの移植性が制限されていました。仕様のこのギャップは、JSON-Bを含めることでJava EE 8で修正されています。
 
 The method body does the following actions:
 
